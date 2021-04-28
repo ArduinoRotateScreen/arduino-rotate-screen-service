@@ -1,18 +1,11 @@
 package com.arnaugarcia.ArduinoRotateScreenClient;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.CoreGraphics;
-import com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.types.CGDirectDisplayID;
-import com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.types.CGError;
-
+@SpringBootApplication
 public class ArduinoRotateScreen {
-    static final int MAX_DISPLAYS = 20;
 
     public static void main(String[] args) {
-        Integer displayCount = 0;
-        CGDirectDisplayID[] displayIDS = new CGDirectDisplayID[MAX_DISPLAYS];
-        if (!CGError.Success.equals(CoreGraphics.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, displayCount))) {
-            System.exit(2);
-        }
-
+        SpringApplication.run(ArduinoRotateScreen.class, args);
     }
 }

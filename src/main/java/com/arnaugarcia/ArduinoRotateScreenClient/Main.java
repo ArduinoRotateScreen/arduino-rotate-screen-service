@@ -31,17 +31,17 @@ public class Main {
 
         // populate the drop-down box
         SerialPort[] portNames = SerialPort.getCommPorts();
-        for (int i = 0; i < portNames.length; i++)
+        for(int i = 0; i < portNames.length; i++)
             portList.addItem(portNames[i].getSystemPortName());
 
 
         // configure the connect button and use another thread to listen for data
         connectButton.addActionListener(arg0 -> {
-            if (connectButton.getText().equals("Connect")) {
+            if(connectButton.getText().equals("Connect")) {
                 // attempt to connect to the serial port
                 chosenPort = SerialPort.getCommPort(portList.getSelectedItem().toString());
                 chosenPort.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0, 0);
-                if (chosenPort.openPort()) {
+                if(chosenPort.openPort()) {
                     connectButton.setText("Disconnect");
                     portList.setEnabled(false);
                 }
@@ -51,13 +51,12 @@ public class Main {
                     System.out.println("connected read");
                     Scanner scanner = new Scanner(chosenPort.getInputStream());
 
-                    while (scanner.hasNextLine()) {
+                    while(scanner.hasNextLine()) {
                         try {
                             String line = scanner.nextLine();
                             System.out.println(line);
                             window.repaint();
-                        } catch (Exception ignored) {
-                        }
+                        } catch(Exception ignored) {}
                     }
                     scanner.close();
                 });

@@ -7,7 +7,6 @@ import java.util.List;
 
 public class DeviceServiceImpl implements DeviceService {
 
-    private final
 
     @Override
     public List<Device> getDeviceList() {
