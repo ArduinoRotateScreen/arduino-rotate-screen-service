@@ -9,8 +9,6 @@ import com.sun.jna.platform.mac.IOKit;
 public interface CoreGraphicsRepository extends Library {
     CoreGraphicsRepository INSTANCE = Native.load("CoreGraphics", CoreGraphicsRepository.class);
 
-    CoreFoundation.CFArrayRef CGWindowListCopyWindowInfo(int option, int relativeToWindow);
-
     CGError CGGetOnlineDisplayList(Integer maxDisplays, CGDirectDisplayID[] onlineDisplays, Integer displayCount);
 
     Double CGDisplayRotation(CGDirectDisplayID displayID);
