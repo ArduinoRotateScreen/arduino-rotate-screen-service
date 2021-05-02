@@ -1,16 +1,13 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.service.impl;
 
 import com.arnaugarcia.ArduinoRotateScreenClient.domain.Display;
-import com.arnaugarcia.ArduinoRotateScreenClient.domain.ScreenOrientation;
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.CoreGraphicsRepository;
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGDirectDisplayID;
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGError;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.CoreGraphicsService;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 
 import static java.util.Arrays.stream;
@@ -25,7 +22,7 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
     public List<Display> findDisplays() {
         Integer displayCount = 0;
         CGDirectDisplayID[] displayIDS = new CGDirectDisplayID[MAX_DISPLAYS];
-        if (!CGError.success.equals(CoreGraphicsRepository.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, displayCount))) {
+        if (CoreGraphicsRepository.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, displayCount).isError()) {
             throw new EmptyDisplayException();
         }
         return stream(displayIDS)
@@ -34,19 +31,22 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
                 .collect(toList());
     }
 
-    @Override
-    public ScreenOrientation getScreenInformation(Display display) {
-        return null;
+    private Integer getScreenOrientation(CGDirectDisplayID display) {
+        return CoreGraphicsRepository.INSTANCE.CGDisplayRotation(display).intValue();
     }
 
     private Function<CGDirectDisplayID, Display> buildDisplay() {
-        CGDirectDisplayID mainScreen = getMainDisplayID();
         return displayID -> Display.builder()
                 .id(displayID.toString())
                 .height(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsHigh(displayID).intValue())
                 .wide(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsWide(displayID).intValue())
-                .main(mainScreen.equals(displayID))
+                .main(getMainDisplayID().equals(displayID))
+                .orientation(getScreenOrientation(displayID))
+                .active(displayIsActive(displayID))
                 .build();
+    }
+    private Boolean displayIsActive(CGDirectDisplayID displayID) {
+        return CoreGraphicsRepository.INSTANCE.CGDisplayIsActive(displayID).isTrue();
     }
 
     private CGDirectDisplayID getMainDisplayID() {

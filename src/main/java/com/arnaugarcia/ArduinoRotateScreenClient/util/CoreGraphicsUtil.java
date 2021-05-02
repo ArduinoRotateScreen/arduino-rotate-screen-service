@@ -1,9 +1,6 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.util;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGError;
-
-import java.util.Optional;
-import java.util.stream.Stream;
+import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.boolean_t;
 
 public class CoreGraphicsUtil {
     /*public static <T> Optional<T> wrapError(CGError expression) {
@@ -13,4 +10,8 @@ public class CoreGraphicsUtil {
             }
         });
     }*/
+
+    public static Boolean isTrue(boolean_t value) {
+        return value.intValue() == 1;
+    }
 }
