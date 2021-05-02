@@ -9,5 +9,5 @@ public interface CoreGraphicsService {
 
     List<Display> findDisplays();
 
-    ScreenOrientation getScreenOrientation(Display display);
+    ScreenOrientation getScreenInformation(Display display);
 }

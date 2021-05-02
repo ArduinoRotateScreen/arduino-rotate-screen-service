@@ -9,8 +9,11 @@ import com.arnaugarcia.ArduinoRotateScreenClient.service.CoreGraphicsService;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class CoreGraphicsServiceImpl implements CoreGraphicsService {
@@ -24,11 +27,22 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
         if (!CGError.success.equals(CoreGraphicsRepository.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, displayCount))) {
             throw new EmptyDisplayException();
         }
-        return new ArrayList<>();
+        return stream(displayIDS)
+                .filter(CGDirectDisplayID::isNotEmpty)
+                .map(buildDisplay())
+                .collect(toList());
     }
 
     @Override
-    public ScreenOrientation getScreenOrientation(Display display) {
+    public ScreenOrientation getScreenInformation(Display display) {
         return null;
+    }
+
+    private Function<CGDirectDisplayID, Display> buildDisplay() {
+        return displayID -> Display.builder()
+                .id(displayID.toString())
+                .height(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsHigh(displayID).intValue())
+                .wide(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsWide(displayID).intValue())
+                .build();
     }
 }
