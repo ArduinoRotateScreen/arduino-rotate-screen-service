@@ -1,4 +1,6 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.types;
+package com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.repository.types;
+
+import com.arnaugarcia.ArduinoRotateScreenClient.service.coregraphics.repository.int32_t;
 
 public class CGError extends int32_t {
     public static final CGError Success = new CGError(0);
