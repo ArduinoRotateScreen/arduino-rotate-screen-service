@@ -1,7 +1,6 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.domain;
 
 import lombok.Builder;
-import lombok.ToString;
 
 @Builder
 public class Display {

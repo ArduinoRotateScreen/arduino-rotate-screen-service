@@ -19,4 +19,6 @@ public interface CoreGraphicsRepository extends Library {
     size_t CGDisplayPixelsWide(CGDirectDisplayID displayID);
 
     size_t CGDisplayPixelsHigh(CGDirectDisplayID displayID);
+
+    CGDirectDisplayID CGMainDisplayID();
 }

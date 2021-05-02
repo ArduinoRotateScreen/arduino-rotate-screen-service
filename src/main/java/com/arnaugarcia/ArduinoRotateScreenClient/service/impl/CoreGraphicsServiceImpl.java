@@ -10,6 +10,7 @@ import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayE
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static java.util.Arrays.stream;
@@ -39,10 +40,16 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
     }
 
     private Function<CGDirectDisplayID, Display> buildDisplay() {
+        CGDirectDisplayID mainScreen = getMainDisplayID();
         return displayID -> Display.builder()
                 .id(displayID.toString())
                 .height(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsHigh(displayID).intValue())
                 .wide(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsWide(displayID).intValue())
+                .main(mainScreen.equals(displayID))
                 .build();
+    }
+
+    private CGDirectDisplayID getMainDisplayID() {
+        return CoreGraphicsRepository.INSTANCE.CGMainDisplayID();
     }
 }
