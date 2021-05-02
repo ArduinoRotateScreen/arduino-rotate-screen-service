@@ -5,7 +5,6 @@ import com.sun.jna.IntegerType;
 public class boolean_t extends IntegerType {
     private static final int SIZE = 1;
 
-
     public boolean_t() {
         this(0);
     }
