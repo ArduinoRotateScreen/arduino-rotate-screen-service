@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CoreGraphicsService {
     List<Display> findDisplays();
+
+    void rotateScreen(Display display, Integer orientation);
 }

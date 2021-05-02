@@ -1,6 +1,14 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.repository.types;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class CGDirectDisplayID extends int32_t {
+
+    public CGDirectDisplayID(int value) {
+        super(value);
+    }
+
     public Boolean isEmpty() {
         return this.intValue() == 0;
     }

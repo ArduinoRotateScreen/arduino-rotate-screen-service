@@ -5,6 +5,7 @@ import com.arnaugarcia.ArduinoRotateScreenClient.repository.CoreGraphicsReposito
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGDirectDisplayID;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.CoreGraphicsService;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayException;
+import com.sun.jna.platform.mac.IOKit;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,9 +21,8 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
 
     @Override
     public List<Display> findDisplays() {
-        Integer displayCount = 0;
         CGDirectDisplayID[] displayIDS = new CGDirectDisplayID[MAX_DISPLAYS];
-        if (CoreGraphicsRepository.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, displayCount).isError()) {
+        if (CoreGraphicsRepository.INSTANCE.CGGetOnlineDisplayList(MAX_DISPLAYS, displayIDS, null).isError()) {
             throw new EmptyDisplayException();
         }
         return stream(displayIDS)
@@ -31,13 +31,18 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
                 .collect(toList());
     }
 
+    @Override
+    public void rotateScreen(Display display, Integer orientation) {
+        final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
+    }
+
     private Integer getScreenOrientation(CGDirectDisplayID display) {
         return CoreGraphicsRepository.INSTANCE.CGDisplayRotation(display).intValue();
     }
 
     private Function<CGDirectDisplayID, Display> buildDisplay() {
         return displayID -> Display.builder()
-                .id(displayID.toString())
+                .id(displayID.intValue())
                 .height(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsHigh(displayID).intValue())
                 .wide(CoreGraphicsRepository.INSTANCE.CGDisplayPixelsWide(displayID).intValue())
                 .main(getMainDisplayID().equals(displayID))
