@@ -1,6 +1,7 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.domain;
 
 import lombok.Builder;
+import lombok.ToString;
 
 @Builder
 public class Display {
@@ -13,5 +14,16 @@ public class Display {
 
     public String formattedResolution() {
         return this.height + "x" + this.wide;
+    }
+
+    @Override
+    public String toString() {
+        return "Display{" +
+                "id='" + id + '\'' +
+                ", resolution=" + formattedResolution() +
+                ", orientation=" + orientation +
+                ", main=" + main +
+                ", active=" + active +
+                '}';
     }
 }

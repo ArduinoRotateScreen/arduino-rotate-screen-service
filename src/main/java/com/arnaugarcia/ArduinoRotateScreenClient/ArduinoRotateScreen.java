@@ -23,7 +23,7 @@ public class ArduinoRotateScreen implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        this.deviceService.getDeviceList();
-        this.coreGraphicsService.findDisplays();
+        deviceService.getDeviceList();
+        coreGraphicsService.findDisplays().forEach(System.out::println);
     }
 }
