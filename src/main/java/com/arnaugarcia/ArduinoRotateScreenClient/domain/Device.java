@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.io.model;
+package com.arnaugarcia.ArduinoRotateScreenClient.domain;
 
 import lombok.Builder;
 import lombok.Getter;

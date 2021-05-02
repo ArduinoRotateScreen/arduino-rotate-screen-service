@@ -1,9 +1,11 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.io.mapper;
+package com.arnaugarcia.ArduinoRotateScreenClient.mapper;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.service.io.model.Device;
+import com.arnaugarcia.ArduinoRotateScreenClient.domain.Device;
 import com.fazecast.jSerialComm.SerialPort;
+import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+@Mapper(componentModel = "Spring")
 public interface DeviceMapper extends EntityMapper<SerialPort, Device> {
 
     @Mapping(target = "port", source = "systemPortName")
