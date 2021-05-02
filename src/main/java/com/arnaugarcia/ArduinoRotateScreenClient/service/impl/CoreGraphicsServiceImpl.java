@@ -34,6 +34,7 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
     @Override
     public void rotateScreen(Display display, Integer orientation) {
         final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
+        //CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, )
     }
 
     private Integer getScreenOrientation(CGDirectDisplayID display) {
