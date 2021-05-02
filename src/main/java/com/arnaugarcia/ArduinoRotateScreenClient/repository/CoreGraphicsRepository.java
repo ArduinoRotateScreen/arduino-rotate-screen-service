@@ -2,6 +2,7 @@ package com.arnaugarcia.ArduinoRotateScreenClient.repository;
 
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGDirectDisplayID;
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGError;
+import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.size_t;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.platform.mac.CoreFoundation;
@@ -13,5 +14,9 @@ public interface CoreGraphicsRepository extends Library {
 
     CGError CGGetOnlineDisplayList(Integer maxDisplays, CGDirectDisplayID[] onlineDisplays, Integer displayCount);
 
-    Double CGDisplayRotation(CGDirectDisplayID display);
+    Double CGDisplayRotation(CGDirectDisplayID displayID);
+
+    size_t CGDisplayPixelsWide(CGDirectDisplayID displayID);
+
+    size_t CGDisplayPixelsHigh(CGDirectDisplayID displayID);
 }
