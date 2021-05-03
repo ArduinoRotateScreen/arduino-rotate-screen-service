@@ -1,8 +1,10 @@
 package com.arnaugarcia.ArduinoRotateScreenClient.service.impl;
 
 import com.arnaugarcia.ArduinoRotateScreenClient.domain.Display;
+import com.arnaugarcia.ArduinoRotateScreenClient.domain.ScreenRotation;
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.CoreGraphicsRepository;
 import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGDirectDisplayID;
+import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.int32_t;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.CoreGraphicsService;
 import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayException;
 import com.sun.jna.platform.mac.IOKit;
@@ -32,9 +34,10 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
     }
 
     @Override
-    public void rotateScreen(Display display, Integer orientation) {
+    public void rotateScreen(Display display, ScreenRotation orientation) {
         final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
-        //CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, )
+        //kIOFBSetTransform | (kIOScaleRotate0 << 16)
+        CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, new int32_t(orientation.getValue()));
     }
 
     private Integer getScreenOrientation(CGDirectDisplayID display) {

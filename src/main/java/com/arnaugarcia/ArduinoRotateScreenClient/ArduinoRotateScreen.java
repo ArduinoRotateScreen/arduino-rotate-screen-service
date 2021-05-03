@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
+import static com.arnaugarcia.ArduinoRotateScreenClient.domain.ScreenRotation.ROTATE_90;
+
 @SpringBootApplication
 public class ArduinoRotateScreen implements CommandLineRunner {
 
@@ -28,10 +30,12 @@ public class ArduinoRotateScreen implements CommandLineRunner {
     public void run(String... args) {
         deviceService.getDeviceList();
         final List<Display> displays = coreGraphicsService.findDisplays();
-        displays.forEach(System.out::println);
         displays.stream()
-                .filter(Display::isRotated)
+                .filter(display -> display.getId().equals(188940595))
                 .findFirst()
-                .ifPresent(display -> coreGraphicsService.rotateScreen(display, 0));
+                .ifPresent(display -> {
+                    coreGraphicsService.rotateScreen(display, ROTATE_90);
+                    System.out.println(display);
+                });
     }
 }
