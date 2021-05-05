@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.exception;
+package com.arnaugarcia.ArduinoRotateScreen.service.exception;
 
 public class EmptyDisplayException extends RuntimeException {
     public EmptyDisplayException() {

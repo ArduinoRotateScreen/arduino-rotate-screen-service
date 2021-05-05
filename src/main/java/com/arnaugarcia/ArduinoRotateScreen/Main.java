@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient;
+package com.arnaugarcia.ArduinoRotateScreen;
 
 import com.fazecast.jSerialComm.SerialPort;
 
@@ -12,7 +12,7 @@ public class Main {
     static SerialPort chosenPort;
     static int x = 0;
 
-    public static void main(String[] args) {
+    public static void test(String[] args) {
 
         // create and configure the window
         JFrame window = new JFrame();

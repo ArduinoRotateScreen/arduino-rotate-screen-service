@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.domain;
+package com.arnaugarcia.ArduinoRotateScreen.domain;
 
 public enum ScreenRotation {
 

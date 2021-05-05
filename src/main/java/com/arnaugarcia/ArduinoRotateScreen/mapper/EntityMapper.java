@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.mapper;
+package com.arnaugarcia.ArduinoRotateScreen.mapper;
 
 import java.util.List;
 

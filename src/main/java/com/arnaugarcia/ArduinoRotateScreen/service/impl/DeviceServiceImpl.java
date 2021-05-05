@@ -1,8 +1,8 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.impl;
+package com.arnaugarcia.ArduinoRotateScreen.service.impl;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.service.DeviceService;
-import com.arnaugarcia.ArduinoRotateScreenClient.mapper.DeviceMapper;
-import com.arnaugarcia.ArduinoRotateScreenClient.domain.Device;
+import com.arnaugarcia.ArduinoRotateScreen.service.DeviceService;
+import com.arnaugarcia.ArduinoRotateScreen.mapper.DeviceMapper;
+import com.arnaugarcia.ArduinoRotateScreen.domain.Device;
 import com.fazecast.jSerialComm.SerialPort;
 import org.springframework.stereotype.Service;
 

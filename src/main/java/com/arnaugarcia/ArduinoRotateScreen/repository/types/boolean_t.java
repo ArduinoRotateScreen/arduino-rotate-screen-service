@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.repository.types;
+package com.arnaugarcia.ArduinoRotateScreen.repository.types;
 
 import com.sun.jna.IntegerType;
 

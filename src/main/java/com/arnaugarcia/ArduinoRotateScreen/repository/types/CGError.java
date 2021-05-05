@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.repository.types;
+package com.arnaugarcia.ArduinoRotateScreen.repository.types;
 
 public class CGError extends int32_t {
     public CGError() { this(0); }

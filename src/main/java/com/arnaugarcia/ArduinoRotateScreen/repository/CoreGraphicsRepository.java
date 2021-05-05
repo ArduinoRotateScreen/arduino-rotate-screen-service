@@ -1,9 +1,8 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.repository;
+package com.arnaugarcia.ArduinoRotateScreen.repository;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.*;
+import com.arnaugarcia.ArduinoRotateScreen.repository.types.*;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
-import com.sun.jna.platform.mac.CoreFoundation;
 import com.sun.jna.platform.mac.IOKit;
 
 public interface CoreGraphicsRepository extends Library {

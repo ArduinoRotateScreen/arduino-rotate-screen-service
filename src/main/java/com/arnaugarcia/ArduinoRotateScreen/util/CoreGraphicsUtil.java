@@ -1,4 +1,4 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.util;
+package com.arnaugarcia.ArduinoRotateScreen.util;
 
 public class CoreGraphicsUtil {
     /*public static <T> Optional<T> wrapError(CGError expression) {

@@ -1,6 +1,6 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.mapper;
+package com.arnaugarcia.ArduinoRotateScreen.mapper;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.domain.Device;
+import com.arnaugarcia.ArduinoRotateScreen.domain.Device;
 import com.fazecast.jSerialComm.SerialPort;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

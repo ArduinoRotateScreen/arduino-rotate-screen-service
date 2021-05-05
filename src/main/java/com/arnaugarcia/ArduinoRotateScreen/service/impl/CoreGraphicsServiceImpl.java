@@ -1,12 +1,12 @@
-package com.arnaugarcia.ArduinoRotateScreenClient.service.impl;
+package com.arnaugarcia.ArduinoRotateScreen.service.impl;
 
-import com.arnaugarcia.ArduinoRotateScreenClient.domain.Display;
-import com.arnaugarcia.ArduinoRotateScreenClient.domain.ScreenRotation;
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.CoreGraphicsRepository;
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.CGDirectDisplayID;
-import com.arnaugarcia.ArduinoRotateScreenClient.repository.types.int32_t;
-import com.arnaugarcia.ArduinoRotateScreenClient.service.CoreGraphicsService;
-import com.arnaugarcia.ArduinoRotateScreenClient.service.exception.EmptyDisplayException;
+import com.arnaugarcia.ArduinoRotateScreen.domain.Display;
+import com.arnaugarcia.ArduinoRotateScreen.domain.ScreenRotation;
+import com.arnaugarcia.ArduinoRotateScreen.repository.CoreGraphicsRepository;
+import com.arnaugarcia.ArduinoRotateScreen.repository.types.CGDirectDisplayID;
+import com.arnaugarcia.ArduinoRotateScreen.repository.types.int32_t;
+import com.arnaugarcia.ArduinoRotateScreen.service.CoreGraphicsService;
+import com.arnaugarcia.ArduinoRotateScreen.service.exception.EmptyDisplayException;
 import com.sun.jna.platform.mac.IOKit;
 import org.springframework.stereotype.Service;
 
