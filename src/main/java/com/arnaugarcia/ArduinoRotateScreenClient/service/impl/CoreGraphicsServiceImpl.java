@@ -36,7 +36,6 @@ public class CoreGraphicsServiceImpl implements CoreGraphicsService {
     @Override
     public void rotateScreen(Display display, ScreenRotation orientation) {
         final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
-        //kIOFBSetTransform | (kIOScaleRotate0 << 16)
         CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, new int32_t(orientation.getValue()));
     }
 
