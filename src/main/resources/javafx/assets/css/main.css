@@ -38,6 +38,7 @@
     -fx-min-width: 200px;
     -fx-pref-width: 200px;
     -fx-max-width: 200px;
+    -fx-cursor: hand;
 }
 
 .content-section {
