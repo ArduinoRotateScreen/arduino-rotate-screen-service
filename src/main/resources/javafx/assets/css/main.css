@@ -41,6 +41,14 @@
     -fx-cursor: hand;
 }
 
+.sidebar-section Label:hover {
+    -fx-background-color: #f4f4f4;
+}
+
+.active {
+    -fx-background-color: #EAEAEA;
+}
+
 .content-section {
     -fx-padding: 10 20 10 20;
     -fx-wrap-text: true;

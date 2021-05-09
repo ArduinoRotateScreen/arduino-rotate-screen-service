@@ -2,7 +2,6 @@ package com.arnaugarcia.ArduinoRotateScreen.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -12,15 +11,18 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    public VBox sidebarMenu;
-    public SubScene content;
+    private HomeController homeController;
+
+    @FXML
+    private AboutController aboutController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        sidebarMenu.getChildren().forEach(System.out::println);
+        this.homeController.init(this);
+        this.aboutController.init(this);
     }
 
-    public void onHomeClick(MouseEvent mouseEvent) {
-        System.out.println("Home button clicked!");
+    public void loadScene() {
+
     }
 }
