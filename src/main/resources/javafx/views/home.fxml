@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.arnaugarcia.ArduinoRotateScreen.controller.HomeController">
     <top>
-        <BorderPane styleClass="header-section">
-            <left>
-                <Label id="applicationTitle" text="Arduino Screen Rotate"/>
-            </left>
-        </BorderPane>
+        <fx:include source="../layouts/header.fxml"/>
     </top>
     <left>
-        <fx:include fx:id="menuFXML" source="menu.fxml"/>
+        <fx:include source="../layouts/menu.fxml"/>
     </left>
     <center>
-        <VBox styleClass="content-section"></VBox>
+        <VBox styleClass="content-section">
+            <Text>
+                This is the home
+            </Text>
+        </VBox>
     </center>
     <bottom>
-        <HBox id="footer-section">
-            <Label text="Made with ♥ by"/>
-            <Hyperlink text="Arnau Garcia"/>
-        </HBox>
+        <fx:include source="../layouts/footer.fxml"/>
     </bottom>
 </BorderPane>

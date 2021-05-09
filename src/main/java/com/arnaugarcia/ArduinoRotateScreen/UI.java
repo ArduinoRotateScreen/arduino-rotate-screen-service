@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class UI extends Application {
 
+    private Stage window;
+
     public static void main(String[] args) {
        launch(args);
     }
@@ -19,5 +21,6 @@ public class UI extends Application {
         scene.getStylesheets().add(getClass().getResource("/javafx/assets/css/main.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
+        this.window = primaryStage;
     }
 }

@@ -17,10 +17,6 @@ public class HomeController implements Initializable {
 
     }
 
-    public void onHomeClick(MouseEvent mouseEvent) {
-
-    }
-
     public void init(MainController mainController) {
         this.mainController = mainController;
     }
