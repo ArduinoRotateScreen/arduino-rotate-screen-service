@@ -16,7 +16,7 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/javafx/views/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/javafx/views/main.fxml"));
         Scene scene = new Scene(root, 800, 500);
         scene.getStylesheets().add(getClass().getResource("/javafx/assets/css/main.css").toExternalForm());
         primaryStage.setScene(scene);

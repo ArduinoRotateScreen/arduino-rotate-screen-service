@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
-<!--<?import com.arnaugarcia.ArduinoRotateScreen.view.component.Menu?>-->
-
-<BorderPane xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.arnaugarcia.ArduinoRotateScreen.controller.HomeController">
-    <top>
-        <fx:include source="../layouts/header.fxml"/>
-    </top>
-    <left>
-        <fx:include source="../layouts/menu.fxml"/>
-        <!--<Menu>
-            <routes title="Home" action="#goHome"/>
-            <routes title="Devices" action="#goDevices"/>
-            <routes title="About" action="#goAbout"/>
-        </Menu>-->
-    </left>
-    <center>
-        <VBox styleClass="content-section">
-            <Text>
-                This is the home
-            </Text>
-        </VBox>
-    </center>
-    <bottom>
-        <fx:include source="../layouts/footer.fxml"/>
-    </bottom>
-</BorderPane>
+<VBox xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.arnaugarcia.ArduinoRotateScreen.controller.HomeController">
+        <Label fx:id="label">This is Home</Label>
+</VBox>
