@@ -3,13 +3,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+<!--<?import com.arnaugarcia.ArduinoRotateScreen.view.component.Menu?>-->
+
+<BorderPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.arnaugarcia.ArduinoRotateScreen.controller.HomeController">
     <top>
         <fx:include source="../layouts/header.fxml"/>
     </top>
     <left>
         <fx:include source="../layouts/menu.fxml"/>
+        <!--<Menu>
+            <routes title="Home" action="#goHome"/>
+            <routes title="Devices" action="#goDevices"/>
+            <routes title="About" action="#goAbout"/>
+        </Menu>-->
     </left>
     <center>
         <VBox styleClass="content-section">
