@@ -45,6 +45,11 @@
     -fx-background-color: #f4f4f4;
 }
 
+.scroll-pane {
+    -fx-background: #FFFFFF;
+    -fx-border-color: #FFFFFF;
+}
+
 .active {
     -fx-background-color: #EAEAEA;
 }
