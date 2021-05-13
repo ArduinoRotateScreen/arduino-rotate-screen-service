@@ -11,8 +11,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.arnaugarcia</groupId>
-    <artifactId>ArduinoRotateScreenClient</artifactId>
+    <groupId>com.arnaugarcia.ars</groupId>
+    <artifactId>service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
