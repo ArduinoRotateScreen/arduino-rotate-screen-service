@@ -8,7 +8,6 @@ import com.arnaugarcia.ars.service.repository.types.int32_t;
 import com.arnaugarcia.ars.service.service.CoreGraphicsService;
 import com.arnaugarcia.ars.service.service.exception.EmptyDisplayException;
 import com.sun.jna.platform.mac.IOKit;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Function;
@@ -16,7 +15,6 @@ import java.util.function.Function;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
 
-@Service
 public class CoreGraphicsServiceImpl implements CoreGraphicsService {
 
     private final Integer MAX_DISPLAYS = 20;

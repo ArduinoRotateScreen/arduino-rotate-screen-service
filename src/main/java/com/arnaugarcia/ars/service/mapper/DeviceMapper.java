@@ -5,7 +5,7 @@ import com.fazecast.jSerialComm.SerialPort;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "Spring")
+@Mapper
 public interface DeviceMapper extends EntityMapper<SerialPort, Device> {
 
     @Mapping(target = "port", source = "systemPortName")
