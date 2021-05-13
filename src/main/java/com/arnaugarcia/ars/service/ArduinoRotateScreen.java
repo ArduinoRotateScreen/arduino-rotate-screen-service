@@ -8,6 +8,5 @@ public class ArduinoRotateScreen {
 
     public static void main(String[] args) {
         SpringApplication.run(ArduinoRotateScreen.class, args);
-        UI.main(args);
     }
 }
