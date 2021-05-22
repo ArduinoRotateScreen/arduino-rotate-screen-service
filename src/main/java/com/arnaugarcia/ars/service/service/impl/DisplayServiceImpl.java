@@ -5,7 +5,7 @@ import com.arnaugarcia.ars.service.domain.ScreenRotation;
 import com.arnaugarcia.ars.service.repository.CoreGraphicsRepository;
 import com.arnaugarcia.ars.service.repository.types.CGDirectDisplayID;
 import com.arnaugarcia.ars.service.repository.types.int32_t;
-import com.arnaugarcia.ars.service.service.CoreGraphicsService;
+import com.arnaugarcia.ars.service.service.DisplayService;
 import com.arnaugarcia.ars.service.service.exception.EmptyDisplayException;
 import com.sun.jna.platform.mac.IOKit;
 
@@ -15,7 +15,7 @@ import java.util.function.Function;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
 
-public class CoreGraphicsServiceImpl implements CoreGraphicsService {
+public class DisplayServiceImpl implements DisplayService {
 
     private final Integer MAX_DISPLAYS = 20;
 
