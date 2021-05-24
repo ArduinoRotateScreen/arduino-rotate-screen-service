@@ -10,4 +10,9 @@ public class Device {
     private final String description;
     private final Integer baudRate;
     private final String port;
+
+    @Override
+    public String toString() {
+        return name + " (" + port + ")";
+    }
 }
