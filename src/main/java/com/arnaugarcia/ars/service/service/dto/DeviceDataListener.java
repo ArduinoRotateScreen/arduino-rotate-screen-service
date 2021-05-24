@@ -13,16 +13,16 @@ public interface DeviceDataListener extends SerialPortDataListener {
         return LISTENING_EVENT_DATA_AVAILABLE;
     }
 
-    void event(String deviceData);
+    void event(DeviceData deviceData);
 
     @Override
     default void serialEvent(SerialPortEvent event) {
-        if (event.getEventType() != SerialPort.LISTENING_EVENT_DATA_AVAILABLE)
+        if (event.getEventType() != LISTENING_EVENT_DATA_AVAILABLE)
             return;
         final SerialPort serialPort = event.getSerialPort();
         byte[] newData = new byte[serialPort.bytesAvailable()];
         serialPort.readBytes(newData, newData.length);
         final String data = new String(newData);
-        event(data);
+        event(new DeviceData(data));
     }
 }
