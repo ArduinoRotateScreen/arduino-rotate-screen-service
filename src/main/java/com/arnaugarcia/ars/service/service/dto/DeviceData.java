@@ -1,4 +1,4 @@
-package com.arnaugarcia.ars.service.domain;
+package com.arnaugarcia.ars.service.service.dto;
 
 import lombok.Getter;
 
