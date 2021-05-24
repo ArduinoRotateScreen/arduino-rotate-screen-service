@@ -1,6 +1,6 @@
 package com.arnaugarcia.ars.service.domain;
 
-public enum ScreenRotation {
+public enum DisplayRotation {
 
     ROTATE_0(1024), // (1024 | 0) * 2^16
     ROTATE_90(3146752), // (1024 | 48) * 2^16
@@ -9,7 +9,7 @@ public enum ScreenRotation {
 
     private final Integer value;
 
-    ScreenRotation(int value) {
+    DisplayRotation(int value) {
             this.value = value;
     }
 

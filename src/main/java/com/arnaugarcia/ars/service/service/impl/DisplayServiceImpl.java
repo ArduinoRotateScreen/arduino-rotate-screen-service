@@ -1,7 +1,7 @@
 package com.arnaugarcia.ars.service.service.impl;
 
 import com.arnaugarcia.ars.service.domain.Display;
-import com.arnaugarcia.ars.service.domain.ScreenRotation;
+import com.arnaugarcia.ars.service.domain.DisplayRotation;
 import com.arnaugarcia.ars.service.repository.CoreGraphicsRepository;
 import com.arnaugarcia.ars.service.repository.types.CGDirectDisplayID;
 import com.arnaugarcia.ars.service.repository.types.int32_t;
@@ -32,7 +32,7 @@ public class DisplayServiceImpl implements DisplayService {
     }
 
     @Override
-    public void rotateScreen(Display display, ScreenRotation orientation) {
+    public void rotateDisplay(Display display, DisplayRotation orientation) {
         final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
         CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, new int32_t(orientation.getValue()));
     }
