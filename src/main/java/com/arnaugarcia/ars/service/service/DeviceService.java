@@ -9,4 +9,6 @@ public interface DeviceService {
     List<Device> getDeviceList();
 
     void attachListener(Device device, SerialPortDataListener listener);
+
+    void removeListener(Device device);
 }

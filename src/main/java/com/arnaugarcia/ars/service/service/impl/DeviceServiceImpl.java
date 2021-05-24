@@ -28,11 +28,21 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     public void attachListener(Device device, SerialPortDataListener listener) {
-        final SerialPort commPort = SerialPort.getCommPort(device.getPort());
+        final SerialPort commPort = getSerialPort(device);
         commPort.addDataListener(listener);
         final boolean isOpen = commPort.openPort();
         if (!isOpen) {
             throw new DeviceConnectException(device);
         }
+    }
+
+    @Override
+    public void removeListener(Device device) {
+        final SerialPort serialPort = getSerialPort(device);
+        serialPort.removeDataListener();
+    }
+
+    private SerialPort getSerialPort(Device device) {
+        return SerialPort.getCommPort(device.getPort());
     }
 }
