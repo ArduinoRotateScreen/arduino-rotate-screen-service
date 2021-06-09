@@ -30,10 +30,9 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public Optional<Device> findDeviceByPort(String port) {
-        return stream(SerialPort.getCommPorts())
-                .filter(serialPort -> serialPort.getSystemPortName().equals(port))
-                .findFirst()
-                .map(deviceMapper::toDTO);
+        return getDeviceList().stream()
+                .filter(device -> device.getPort().equals(port))
+                .findFirst();
     }
 
     public void attachListener(Device device, SerialPortDataListener listener) {
