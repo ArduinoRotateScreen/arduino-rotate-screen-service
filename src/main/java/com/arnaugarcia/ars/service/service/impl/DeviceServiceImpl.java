@@ -8,6 +8,7 @@ import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
@@ -25,6 +26,14 @@ public class DeviceServiceImpl implements DeviceService {
         return stream(SerialPort.getCommPorts())
                 .map(deviceMapper::toDTO)
                 .collect(toList());
+    }
+
+    @Override
+    public Optional<Device> findDeviceByPort(String port) {
+        return stream(SerialPort.getCommPorts())
+                .filter(serialPort -> serialPort.getSystemPortName().equals(port))
+                .findFirst()
+                .map(deviceMapper::toDTO);
     }
 
     public void attachListener(Device device, SerialPortDataListener listener) {
