@@ -10,7 +10,7 @@ public enum DisplayRotation {
     private final Integer value;
 
     DisplayRotation(int value) {
-            this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
