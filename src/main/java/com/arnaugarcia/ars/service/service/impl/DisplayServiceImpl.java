@@ -10,6 +10,7 @@ import com.arnaugarcia.ars.service.service.exception.EmptyDisplayException;
 import com.sun.jna.platform.mac.IOKit;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static java.util.Arrays.stream;
@@ -35,6 +36,13 @@ public class DisplayServiceImpl implements DisplayService {
     public void rotateDisplay(Display display, DisplayRotation orientation) {
         final IOKit.IOService ioService = CoreGraphicsRepository.INSTANCE.CGDisplayIOServicePort(new CGDirectDisplayID(display.getId()));
         CoreGraphicsRepository.INSTANCE.IOServiceRequestProbe(ioService, new int32_t(orientation.getValue()));
+    }
+
+    @Override
+    public Optional<Display> findById(String displayId) {
+        return this.findDisplays().stream()
+                .filter(display -> display.getId().toString().equals(displayId))
+                .findFirst();
     }
 
     private Integer getScreenOrientation(CGDirectDisplayID display) {
