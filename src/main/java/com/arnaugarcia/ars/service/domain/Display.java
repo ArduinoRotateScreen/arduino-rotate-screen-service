@@ -3,14 +3,14 @@ package com.arnaugarcia.ars.service.domain;
 import lombok.Builder;
 import lombok.Getter;
 
-import static com.arnaugarcia.ars.service.domain.DisplayOrientation.HORIZONTAL;
+import static com.arnaugarcia.ars.service.domain.Orientation.HORIZONTAL;
 
 @Getter
 public class Display {
     private final Integer id;
     private final Integer height;
     private final Integer wide;
-    private final DisplayOrientation orientation;
+    private final Orientation orientation;
     private final Boolean main;
     private final Boolean active;
 
@@ -24,7 +24,7 @@ public class Display {
         this.id = id;
         this.height = height;
         this.wide = wide;
-        this.orientation =  DisplayOrientation.valueOf(orientation);
+        this.orientation =  Orientation.valueOf(orientation);
         this.main = main;
         this.active = active;
     }

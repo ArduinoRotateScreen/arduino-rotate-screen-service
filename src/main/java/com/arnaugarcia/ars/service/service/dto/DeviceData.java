@@ -1,6 +1,6 @@
 package com.arnaugarcia.ars.service.service.dto;
 
-import com.arnaugarcia.ars.service.domain.DisplayOrientation;
+import com.arnaugarcia.ars.service.domain.Orientation;
 import com.arnaugarcia.ars.service.service.exception.DeviceDataException;
 import lombok.Getter;
 
@@ -32,20 +32,20 @@ public class DeviceData {
 
     }
 
-    public Optional<DisplayOrientation> getDisplayOrientation(int threshold) {
+    public Optional<Orientation> getOrientation(int threshold) {
         final int deviceValue = (int) (abs(roll));
-        return stream(DisplayOrientation.values())
+        return stream(Orientation.values())
                 .map(convertByThreshold(threshold, deviceValue))
                 .filter(Objects::nonNull)
                 .findFirst();
     }
 
-    private Function<DisplayOrientation, DisplayOrientation> convertByThreshold(int threshold, int deviceValue) {
-        return displayOrientation -> {
-            final int maxOrientation = displayOrientation.getOrientation() + threshold;
-            final int minOrientation = displayOrientation.getOrientation() - threshold;
+    private Function<Orientation, Orientation> convertByThreshold(int threshold, int deviceValue) {
+        return orientation -> {
+            final int maxOrientation = orientation.getOrientation() + threshold;
+            final int minOrientation = orientation.getOrientation() - threshold;
             if (between(deviceValue, maxOrientation, minOrientation)) {
-                return displayOrientation;
+                return orientation;
             } else {
                 return null;
             }

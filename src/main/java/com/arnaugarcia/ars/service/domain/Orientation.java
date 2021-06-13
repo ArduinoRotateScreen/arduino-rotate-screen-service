@@ -3,13 +3,13 @@ package com.arnaugarcia.ars.service.domain;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum DisplayOrientation {
+public enum Orientation {
     HORIZONTAL(0), VERTICAL(90), INVERTED_VERTICAL(180), INVERTED_HORIZONTAL(270);
 
     private final Integer orientation;
-    private static final Map<Integer, DisplayOrientation> map = new HashMap<>();
+    private static final Map<Integer, Orientation> map = new HashMap<>();
 
-    DisplayOrientation(int orientation) {
+    Orientation(int orientation) {
         this.orientation = orientation;
     }
 
@@ -18,12 +18,12 @@ public enum DisplayOrientation {
     }
 
     static {
-        for (DisplayOrientation displayOrientation : DisplayOrientation.values()) {
-            map.put(displayOrientation.orientation, displayOrientation);
+        for (Orientation orientation : Orientation.values()) {
+            map.put(orientation.orientation, orientation);
         }
     }
 
-    static DisplayOrientation valueOf(Integer orientation) {
+    static Orientation valueOf(Integer orientation) {
         return map.get(orientation);
     }
 
